@@ -8,7 +8,7 @@ import NewsletterForm from './NewsletterForm.js';
 
 
 
-const LandingPage = () => {
+const ProjectLandingPage = () => {
 
   
 
@@ -108,4 +108,4 @@ const LandingPage = () => {
 }
 
 
-export default LandingPage;
+export default ProjectLandingPage;

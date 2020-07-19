@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import AppContext from './AppContext';
-import LandingPage from './landingpage1';
+import LandingPage from './ProjectLandingPage';
 import LoginPage from './LoginPage';
 import RegistrationPage from './RegistrationPage';
 import SettingsPage from './SettingsPage';
