@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import AppContext from './AppContext';
 import LandingPage from './ProjectLandingPage';
 import LoginPage from './LoginPage';
-import RegistrationPage from './RegistrationPage';
+import ContactUsPage from './ContactUsPage.js';
 import SettingsPage from './SettingsPage';
 import './App.css';
 
@@ -43,7 +43,7 @@ const App = () => {
         <Switch>
           <Route path="/" exact={true} component={LandingPage}/>
           <Route path="/login" exact={true} component={LoginPage}/>
-          <Route path="/register" exact={true} component={RegistrationPage}/>
+          <Route path="/contactUs" exact={true} component={ContactUsPage}/>
           <PrivateRoute path="/settings" exact={true} component={SettingsPage}/>
         </Switch>
       </BrowserRouter>

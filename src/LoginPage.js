@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import AppContext from './AppContext';
 import NavBar from './NavBar.js';
+import LoginJumbotron from './LoginJumbotron';
 
 const LoginPage = () => {
 
@@ -73,11 +74,12 @@ const LoginPage = () => {
     // Otherwise, show the login form
     else {
         return(
-            <div>
+            <div style={{ backgroundImage: `url(${require("./background2.jpg")})`}}>
                 <NavBar />
-                <h1>Login</h1>
+                <LoginJumbotron title= "Login In"></LoginJumbotron>
+                
 
-                <div className="container">
+                <div style={{paddingTop: '40px'}} className="container">
                     <div className="row">
                         <div className="col-sm" 
                         style={{maxWidth: '400px', margin: '0 auto'}}>
@@ -92,8 +94,6 @@ const LoginPage = () => {
                                     type="email" 
                                     className="form-control" 
                                     id="exampleInputEmail1" aria-describedby="emailHelp"/>
-
-                                    <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="exampleInputPassword1">Password</label>
