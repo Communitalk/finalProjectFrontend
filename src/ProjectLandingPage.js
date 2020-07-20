@@ -25,7 +25,7 @@ const ProjectLandingPage = () => {
       
           <h5 style={{textAlign: 'center', paddingBottom: "10px"}}> Sign up and become part of the CommuniTalk </h5>
         <Link
-            to="/login" className="btn btn-primary btn-block btn-lg" style={{color: "white"}}>
+            to="/register" className="btn btn-primary btn-block btn-lg" style={{color: "white"}}>
                 Sign Up
             </Link>
         </Jumbotron>

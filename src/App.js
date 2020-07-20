@@ -4,6 +4,7 @@ import AppContext from './AppContext';
 import LandingPage from './ProjectLandingPage';
 import LoginPage from './LoginPage';
 import ContactUsPage from './ContactUsPage.js';
+import UserRegistrationPage from './RegistrationPage.js';
 import SettingsPage from './SettingsPage';
 import './App.css';
 
@@ -44,6 +45,7 @@ const App = () => {
           <Route path="/" exact={true} component={LandingPage}/>
           <Route path="/login" exact={true} component={LoginPage}/>
           <Route path="/contactUs" exact={true} component={ContactUsPage}/>
+          <Route path="/register" exact={true} component={UserRegistrationPage}/>
           <PrivateRoute path="/settings" exact={true} component={SettingsPage}/>
         </Switch>
       </BrowserRouter>
