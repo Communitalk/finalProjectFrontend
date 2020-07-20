@@ -6,7 +6,7 @@ const Jumbotron = (prop) => {
 
   
     return (
-      <div className="jumbotron jumbotron-fluid" style={{backgroundColor : "rgba(0,0,0,0.35)"}} >
+      <div className="jumbotron jumbotron-fluid" style={{backgroundColor : "rgba(0,0,0,0)"}} >
         <div className="container"  >
           <h1 className="display-4" >{prop.title}</h1>
           <p className="lead">{prop.description}</p>

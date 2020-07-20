@@ -55,7 +55,7 @@ const NewsletterForm = () => {
                         type="button" 
                         id="button-addon2"
                         onClick={registerEmail}
-                    >Button</button>
+                    >Subscribe</button>
                 </div>
             </div>
             { 
