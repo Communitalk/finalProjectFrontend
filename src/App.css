@@ -37,6 +37,26 @@
   }
 } */
 
+.btn {
+    /* default for <button>, but useful for <a> */
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+  
+    /* create a small space when buttons wrap on 2 lines */
+    margin: 2px 0;
+  
+    /* invisible border (will be colored on hover/focus) */
+    border: solid 1px transparent;
+    border-radius: 4px;
+  
+    /* size comes from text & padding (no width/height) */
+    padding: 0.5em 1em;
+  
+    /* make sure colors have enough contrast! */
+    color: #ffffff;
+    background-color: lightseagreen;
+  }
 
 .loader {
   position: relative;
@@ -72,6 +92,35 @@
   -webkit-animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
   animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
   stroke-linecap: round;
+}
+
+.header {
+  padding: 60px;
+  text-align: center;
+  background:lightseagreen;
+  color: white;
+  font-size: 30px;
+}
+.regform {
+  padding: 20px;
+  text-align: center;
+  background: transparent;
+  color: rgb(34, 33, 33);
+  font-size: 15px;
+}
+
+.grid-container {
+  display: grid;
+  justify-content: space-evenly;
+  align-content: space-between;
+  background: rgba(131, 133, 131, 0.6)
+}
+
+.border {
+  border: 3px solid black;
+  padding: 25px;
+  margin: 50px;
+  border-radius: 20px;
 }
 
 @-webkit-keyframes 
