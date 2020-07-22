@@ -31,8 +31,7 @@ const App = () => {
 
   useEffect(
     ()=>{
-        // when (and if) globalState.loggedIn changes,
-        // run the below code
+      
         console.log("This the loggedIn state", globalState.loggedIn)
     }, 
     [globalState.loggedIn]
