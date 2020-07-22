@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import AppContext from './AppContext';
-import Card from './Card.js';
 import Jumbotron from './Jumbotron.js';
 import MainJumbotron from './MainJumbotron.js';
 import { Link } from 'react-router-dom';
@@ -9,15 +8,15 @@ import NewsletterForm from './NewsletterForm.js';
 
 
 
+
 const ProjectLandingPage = () => {
 
   
 
   return (
-    <div style={{ backgroundImage: `url(${require("./background2.jpg")})`}}>
+    <div style={{ backgroundImage: `url(${require("./background3.jpg")})`}}>
         <NavBar />
         <MainJumbotron 
-          title="CommuniTalk" 
         >
          
         </MainJumbotron>
@@ -25,7 +24,7 @@ const ProjectLandingPage = () => {
       
           <h5 style={{textAlign: 'center', paddingBottom: "10px"}}> Sign up and become part of the CommuniTalk </h5>
         <Link
-            to="/register" className="btn btn-primary btn-block btn-lg" style={{color: "white"}}>
+            to="/register" className="btn btn-primary btn-block btn-lg" >
                 Sign Up
             </Link>
         </Jumbotron>
@@ -104,6 +103,9 @@ const ProjectLandingPage = () => {
         >
           <NewsletterForm />
         </Jumbotron>
+
+        
+        
     </div>
   );
 }

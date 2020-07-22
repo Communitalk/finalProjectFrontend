@@ -74,12 +74,12 @@ const LoginPage = () => {
     // Otherwise, show the login form
     else {
         return(
-            <div style={{ backgroundImage: `url(${require("./background2.jpg")})`}}>
+            <div style={{ backgroundImage: `url(${require("./background3.jpg")})`}}>
                 <NavBar />
-                <LoginJumbotron title= "Login In"></LoginJumbotron>
+                <LoginJumbotron ></LoginJumbotron>
                 
 
-                <div style={{paddingTop: '40px'}} className="container">
+                <div style={{paddingTop: '40px', backgroundColor:"rgba(0,0,0,0.3)", color:"white"}} className="container border">
                     <div className="row">
                         <div className="col-sm" 
                         style={{maxWidth: '400px', margin: '0 auto'}}>

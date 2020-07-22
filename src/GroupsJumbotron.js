@@ -2,11 +2,11 @@ import React from 'react';
 import './App.css';
 
 
-const Jumbotron1 = (prop) => {
+const GroupsJumbotron = (prop) => {
 
   
     return (
-      <div className=" jumbotron-fluid border" style={{ backgroundImage: `url(${require("./logo1.png")})`, backgroundSize: 'cover',minHeight:'45rem', backgroundPosition: '100% 100%'}} >
+      <div className=" jumbotron-fluid border" style={{ backgroundImage: `url(${require("./banner1.jpg")})`, backgroundSize: 'cover',minHeight:'20rem', backgroundPosition: '80% 80%'}} >
         <div className="container"  >
           <h1 className="display-4">{prop.title}</h1>
           <p className="lead">{prop.description}</p>
@@ -16,4 +16,4 @@ const Jumbotron1 = (prop) => {
     )
 }
 
-export default Jumbotron1;
+export default GroupsJumbotron;
