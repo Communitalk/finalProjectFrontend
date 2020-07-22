@@ -11,7 +11,7 @@ const ContactUsPage = () => {
   
 
   return (
-    <div style={{ backgroundImage: `url(${require("./background2.jpg")})`}}>
+    <div style={{ backgroundImage: `url(${require("./background3.jpg")})`}}>
         <NavBar />
         <ContactJumbotron  >
          

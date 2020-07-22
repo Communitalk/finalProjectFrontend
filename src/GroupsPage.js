@@ -4,13 +4,14 @@ import Card from './Card.js';
 import Jumbotron from './Jumbotron.js';
 import NavBar from './NavBar.js';
 import NewsletterForm from './NewsletterForm.js';
+import GroupsJumbotron from './GroupsJumbotron';
 
 // 1. Connect to the globalState
 // 2. Conditionally render the cards
 // 3. Use the useEffect() to subscribe to the globalState.loggedIn
 // 4. If globalState.loggedIn is true, fetch products from db
 
-const LandingPage = () => {
+const GroupsPage = () => {
 
   const [globalState, setGlobalState] = useContext(AppContext);
   const [state, setState] = useState({ products: []})
@@ -19,7 +20,7 @@ const LandingPage = () => {
     () => {
       // only fetch products if and when the user logs in
       if(globalState.loggedIn === true) {
-        fetch(`${process.env.REACT_APP_API_URL}products`)
+        fetch(`${process.env.REACT_APP_API_URL}groups`)
         .then(
           (result)=>result.json()
         )
@@ -28,7 +29,7 @@ const LandingPage = () => {
             setState(
               {
                 ...state,
-                products: json.products
+                groups: json.groups
               }
             )
           }
@@ -39,32 +40,26 @@ const LandingPage = () => {
   )
 
   return (
-    <div>
+    <div style={{ backgroundImage: `url(${require("./background3.jpg")})`}}>
         <NavBar />
-        <Jumbotron 
-          title="Newsletter" 
-          description="Enter your email below to register"
-        >
-          <NewsletterForm />
-        </Jumbotron>
+        <GroupsJumbotron></GroupsJumbotron>
         
         <Jumbotron 
-          title="Featured Products" 
-          description="Check out these latest trendy items"
+          title="Featured Groups" 
         >
 
         <div className="row">
           {
             globalState.loggedIn === true &&
             state.products.map(
-              (product)=>
+              (group)=>
                 <div className="col-lg-4 col-sm-6">
                   <Card
-                    title={product.brand}
-                    description={product.description}
-                    image={product.image}
-                    buttonLabel="Buy"
-                    buttonLink="#"
+                    title={group.name}
+                    description={group.building}
+                    image={group.image}
+                    buttonLabel="Update"
+                    buttonLink="/updateGroup"
                   />
                 </div>
             )
@@ -73,7 +68,7 @@ const LandingPage = () => {
           {
             globalState.loggedIn === false &&
             <div className="col-lg-4 col-sm-6">
-              <p>Please login to see the exclusive products.</p>
+              <p>Please login to see the existing groups.</p>
             </div>
           }
           </div>
@@ -83,4 +78,4 @@ const LandingPage = () => {
 }
 
 
-export default LandingPage;
+export default GroupsPage;

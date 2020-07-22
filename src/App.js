@@ -5,6 +5,10 @@ import LandingPage from './ProjectLandingPage';
 import LoginPage from './LoginPage';
 import ContactUsPage from './ContactUsPage.js';
 import UserRegistrationPage from './RegistrationPage.js';
+import GroupRegistrationPage from './GroupRegistration.js';
+import GroupsPage from './GroupsPage.js';
+import EventRegistrationPage from './EventRegistration.js';
+import EventsPage from './EventsPage.js';
 import SettingsPage from './SettingsPage';
 import './App.css';
 
@@ -46,6 +50,8 @@ const App = () => {
           <Route path="/login" exact={true} component={LoginPage}/>
           <Route path="/contactUs" exact={true} component={ContactUsPage}/>
           <Route path="/register" exact={true} component={UserRegistrationPage}/>
+          <Route path="/groups" exact={true} component={GroupsPage}/>
+          <Route path="/events" exact={true} component={EventsPage}/>
           <PrivateRoute path="/settings" exact={true} component={SettingsPage}/>
         </Switch>
       </BrowserRouter>

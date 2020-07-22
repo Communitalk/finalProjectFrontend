@@ -36,114 +36,172 @@
     transform: rotate(360deg);
   }
 } */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:#595959;
+  color: white;
+  text-align: center;
+}
 
+.btn {
+  /* default for <button>, but useful for <a> */
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+
+  /* create a small space when buttons wrap on 2 lines */
+  margin: 2px 0;
+
+  /* invisible border (will be colored on hover/focus) */
+  border: solid 1px transparent;
+  border-radius: 4px;
+
+  /* size comes from text & padding (no width/height) */
+  padding: 0.5em 1em;
+
+  /* make sure colors have enough contrast! */
+  color: #ffffff;
+  background-color: lightseagreen;
+}
 
 .loader {
-  position: relative;
-  margin: 0px auto;
-  width: 100px;
+position: relative;
+margin: 0px auto;
+width: 100px;
 }
 
 .loader:before {
-  content: '';
-  display: block;
-  padding-top: 100%;
+content: '';
+display: block;
+padding-top: 100%;
 }
 
 .circular {
-  -webkit-animation: rotate 2s linear infinite;
-  animation: rotate 2s linear infinite;
-  height: 100%;
-  -webkit-transform-origin: center center;
-  -ms-transform-origin: center center;
-  transform-origin: center center;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
+-webkit-animation: rotate 2s linear infinite;
+animation: rotate 2s linear infinite;
+height: 100%;
+-webkit-transform-origin: center center;
+-ms-transform-origin: center center;
+transform-origin: center center;
+width: 100%;
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+margin: auto;
 }
 
 .path {
-  stroke-dasharray: 1, 200;
-  stroke-dashoffset: 0;
-  -webkit-animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
-  animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
-  stroke-linecap: round;
+stroke-dasharray: 1, 200;
+stroke-dashoffset: 0;
+-webkit-animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+stroke-linecap: round;
+}
+
+.header {
+padding: 60px;
+text-align: center;
+background:lightseagreen;
+color: white;
+font-size: 30px;
+}
+.regform {
+padding: 20px;
+text-align: center;
+background: transparent;
+color: rgb(34, 33, 33);
+font-size: 15px;
+}
+
+.grid-container {
+display: grid;
+justify-content: space-evenly;
+align-content: space-between;
+background: rgba(131, 133, 131, 0.6)
+}
+
+.border {
+border: 3px solid black;
+padding: 25px;
+margin: 50px;
+border-radius: 20px;
 }
 
 @-webkit-keyframes 
 rotate {  100% {
- -webkit-transform: rotate(360deg);
- transform: rotate(360deg);
+-webkit-transform: rotate(360deg);
+transform: rotate(360deg);
 }
 }
 
 @keyframes 
 rotate {  100% {
- -webkit-transform: rotate(360deg);
- transform: rotate(360deg);
+-webkit-transform: rotate(360deg);
+transform: rotate(360deg);
 }
 }
 
 @-webkit-keyframes 
 dash {  0% {
- stroke-dasharray: 1, 200;
- stroke-dashoffset: 0;
+stroke-dasharray: 1, 200;
+stroke-dashoffset: 0;
 }
- 50% {
- stroke-dasharray: 89, 200;
- stroke-dashoffset: -35;
+50% {
+stroke-dasharray: 89, 200;
+stroke-dashoffset: -35;
 }
- 100% {
- stroke-dasharray: 89, 200;
- stroke-dashoffset: -124;
+100% {
+stroke-dasharray: 89, 200;
+stroke-dashoffset: -124;
 }
 }
 
 @keyframes 
 dash {  0% {
- stroke-dasharray: 1, 200;
- stroke-dashoffset: 0;
+stroke-dasharray: 1, 200;
+stroke-dashoffset: 0;
 }
- 50% {
- stroke-dasharray: 89, 200;
- stroke-dashoffset: -35;
+50% {
+stroke-dasharray: 89, 200;
+stroke-dashoffset: -35;
 }
- 100% {
- stroke-dasharray: 89, 200;
- stroke-dashoffset: -124;
+100% {
+stroke-dasharray: 89, 200;
+stroke-dashoffset: -124;
 }
 }
 
 @-webkit-keyframes 
 color {  100%, 0% {
- stroke: #d62d20;
+stroke: #d62d20;
 }
- 40% {
- stroke: #0057e7;
+40% {
+stroke: #0057e7;
 }
- 66% {
- stroke: #008744;
+66% {
+stroke: #008744;
 }
- 80%, 90% {
- stroke: #ffa700;
+80%, 90% {
+stroke: #ffa700;
 }
 }
 
 @keyframes 
 color {  100%, 0% {
- stroke: #d62d20;
+stroke: #d62d20;
 }
- 40% {
- stroke: #0057e7;
+40% {
+stroke: #0057e7;
 }
- 66% {
- stroke: #008744;
+66% {
+stroke: #008744;
 }
- 80%, 90% {
- stroke: #ffa700;
+80%, 90% {
+stroke: #ffa700;
 }
 }

@@ -24,15 +24,15 @@ const NavBar = () => {
         <nav className="navbar navbar-dark " style={{backgroundColor : ' #ffffff'}}>
            <a className="navbar-brand" href="/">
             <img src={logo} width="50" height="35" class="d-inline-block align-top" alt="" loading="lazy"/>
-            <p style={{color: "black"}} class="d-inline-block align-top" >CommuniTalk</p>
+            <p style={{color: "black"}} class="d-inline-block align-top" ></p>
           </a>
             <Navbar2  expand="lg">
             <Navbar2.Toggle aria-controls="basic-navbar-nav" />
             <Navbar2.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
                 <Nav.Link href="/" style={{color: "black"} }>Home</Nav.Link>
-                <Nav.Link href="#" style={{color: "black"}}>Groups</Nav.Link>
-                <Nav.Link href="#" style={{color: "black"}}>Events</Nav.Link>
+                <Nav.Link href="/groups" style={{color: "black"}}>Feeds</Nav.Link>
+                <Nav.Link href="/events" style={{color: "black"}}>Events</Nav.Link>
                 <Nav.Link href="/contactUs"style={{color: "black"}}>Contact Us</Nav.Link>
                 </Nav>
             </Navbar2.Collapse>
@@ -43,16 +43,16 @@ const NavBar = () => {
                     globalState.loggedIn === false && 
                     <Link
                     to="/login"
-                    className="btn " style={{color: "black"}}>
-                        Log In
+                    className="btn btn-primary" style={{color: "white"}}>
+                        Login
                     </Link>
                 }
 
                 {
                     globalState.loggedIn === true && 
                     <button onClick={logOut}
-                    className="btn btn-primary">
-                        Log Out
+                    className="btn btn-primary" style={{color: "white"}}>
+                        Logout
                     </button>
                 }
             </div>
