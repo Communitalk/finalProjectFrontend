@@ -3,7 +3,7 @@ import React from 'react';
 
 export const CardButton = () => {} 
 
-const Card = (prop) => {
+const Card2 = (prop) => {
 
     let cardTitle;
 
@@ -14,12 +14,7 @@ const Card = (prop) => {
 
     return (
         <div className="card" style={{width: "18rem", color:"black", marginBottom:'20px'}}>
-          <img 
-            src={prop.image} 
-            className="card-img-top" 
-            alt={prop.title} 
-            style={{maxHeight:"10rem"}}
-          />
+          
           <div className="card-body">
 
             <h5 
@@ -28,9 +23,9 @@ const Card = (prop) => {
             </h5>
 
             <p className="card-text">{prop.description}</p>
-            <p className="card-text">Floor: {prop.x}</p>
-            <p className="card-text">Building: {prop.y}</p>
-            <p className="card-text">Area: {prop.z}</p>
+            <p className="card-text">Time : {prop.x}</p>
+            <p className="card-text">Organizer : {prop.y}</p>
+            <p className="card-text">Number of participants: {prop.z}</p>
             <a 
                 onClick={makeAction}
                 href={prop.buttonLink} 
@@ -41,4 +36,4 @@ const Card = (prop) => {
     )
 }
 
-export default Card;
+export default Card2;

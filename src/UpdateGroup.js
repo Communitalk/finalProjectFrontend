@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import NavBar from './NavBar.js';
-import EventsJumbotron from './EventsJumbotron';
+import GroupsJumbotron from './GroupsJumbotron';
 
-const EventRegistration = () => {
+const UpdateGroup = () => {
 
     const [state, setState] = useState(
         {
-            registered: false,
+            updated: false,
             loading: false,
             errors: 0,
             messages: []
@@ -15,9 +15,11 @@ const EventRegistration = () => {
     );
 
     // These will be assigned values by React
-    let name, place, description, participantsNumber, organizer, time
+    let name;
+    let _id;
+    let image;
 
-    const createGroup = () => {
+    const updateGroup = () => {
        
         let errors = 0;
         let messages = [];
@@ -26,26 +28,15 @@ const EventRegistration = () => {
             errors++;
             messages.push('Please enter a valid group name')
         }
-        if(place.value.length < 1) {
+        if(_id.value.length < 1) {
             errors++;
             messages.push('Please enter a floor number ')
         }
-        if(description.value.length < 1) {
+        if(image.value.length < 1) {
             errors++;
             messages.push('Please enter a floor number ')
         }
-        if(participantsNumber.value.length < 1) {
-            errors++;
-            messages.push('Please enter a floor number ')
-        }
-        if(organizer.value.length < 1) {
-            errors++;
-            messages.push('Please enter a floor number ')
-        }
-        if(time.value.length < 1) {
-            errors++;
-            messages.push('Please enter a floor number ')
-        }
+    
         
         // If user makes any mistake
         if(errors > 0) {
@@ -70,15 +61,12 @@ const EventRegistration = () => {
             )
         }
 
-        fetch(`${process.env.REACT_APP_API_URL}events/createEvent`, {
+        fetch(`${process.env.REACT_APP_API_URL}groups/updateGroup`, {
             method: 'POST',
             body: JSON.stringify({
+                _id : _id.value,
                 name: name.value,
-                place: place.value,
-                description: description.value,
-                participantsNumber: participantsNumber.value,
-                organizer:organizer.value,
-                time:time.value
+                image:image.value
             }),
             headers: {
                 "Content-Type": "application/json"
@@ -90,12 +78,12 @@ const EventRegistration = () => {
         .then(
             (json)=> {
                 const { message } = json;
-                if(message === "Event has been created!") {
+                if(message === "The group has been updated!") {
                     //
                     setState(
                         {
                             ...state,
-                            registered: true,
+                            updated: true,
                             loading: false
                         }
                     )
@@ -111,9 +99,9 @@ const EventRegistration = () => {
         )
     }
 
-    // If the user is registered, redirect them
-    if(state.registered === true) {
-        return (<Redirect to="/events"/>)
+    // If the user is updated, redirect them
+    if(state.updated === true) {
+        return (<Redirect to="/groups"/>)
     }
 
     // Otherwise, show the registration form
@@ -121,7 +109,7 @@ const EventRegistration = () => {
         return(
             <div style={{ backgroundImage: `url(${require("./background3.jpg")})`, color:"white"}}>
                 <NavBar />
-                <EventsJumbotron></EventsJumbotron>
+                <GroupsJumbotron></GroupsJumbotron>
 
                 <div className="container">
                     <div className="row">
@@ -130,7 +118,19 @@ const EventRegistration = () => {
                             <div>
                                 <div className="form-group">
                                     <label>
-                                        Event  
+                                        Group ID
+                                    </label>
+
+                                    <input 
+                                    ref={(comp)=>_id = comp}
+                                    type="text" 
+                                    className="form-control" 
+                                    aria-describedby="_id"/>
+                                </div>
+
+                                <div className="form-group">
+                                    <label>
+                                        Name
                                     </label>
 
                                     <input 
@@ -141,68 +141,21 @@ const EventRegistration = () => {
                                 </div>
 
                                 <div className="form-group">
-                                    <label>
-                                        Place
-                                    </label>
-
-                                    <input 
-                                    ref={(comp)=>place = comp}
-                                    type="text" 
-                                    className="form-control" 
-                                    aria-describedby="place"/>
-                                </div>
-
-                                <div className="form-group">
                                     <label htmlFor="exampleInputEmail1">
-                                        Description
+                                        Image
                                     </label>
 
                                     <input 
-                                    ref={(comp)=>description = comp}
+                                    ref={(comp)=>image = comp}
                                     type="text" 
                                     className="form-control" 
-                                    aria-describedby="description"/>
-                                </div>
-
-                                <div className="form-group">
-                                    <label>
-                                        Number of Participants
-                                    </label>
-
-                                    <input 
-                                    ref={(comp)=>participantsNumber = comp}
-                                    type="number" 
-                                    className="form-control" 
-                                    aria-describedby="participantsNumber"/>
-                                </div>
-                                <div className="form-group">
-                                    <label>
-                                        Organizer
-                                    </label>
-
-                                    <input 
-                                    ref={(comp)=>organizer = comp}
-                                    type="text" 
-                                    className="form-control" 
-                                    aria-describedby="organizer"/>
-                                </div>
-                                <div className="form-group">
-                                    <label>
-                                        Time
-                                    </label>
-
-                                    <input 
-                                    ref={(comp)=>time = comp}
-                                    type="date" 
-                                    className="form-control" 
-                                    aria-describedby="time"/>
-                                    
+                                    aria-describedby="image"/>
                                 </div>
 
                                 <button
-                                onClick={createGroup}
+                                onClick={updateGroup}
                                 type="button"
-                                className="btn btn-primary">Create
+                                className="btn btn-primary">Update
                                 </button>
                                 <br/><br/>
 
@@ -234,4 +187,4 @@ const EventRegistration = () => {
     }
 }
 
-export default EventRegistration;
+export default UpdateGroup;

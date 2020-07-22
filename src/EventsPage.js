@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import AppContext from './AppContext';
-import Card from './Card.js';
+import Card from './Card2.js';
 import Jumbotron from './Jumbotron.js';
 import NavBar from './NavBar.js';
-import NewsletterForm from './NewsletterForm.js';
 import EventsJumbotron from './EventsJumbotron';
+import { Link } from 'react-router-dom';
 
 // 1. Connect to the globalState
 // 2. Conditionally render the cards
@@ -14,7 +14,7 @@ import EventsJumbotron from './EventsJumbotron';
 const EventsPage = () => {
 
   const [globalState, setGlobalState] = useContext(AppContext);
-  const [state, setState] = useState({ products: []})
+  const [state, setState] = useState({ events: []})
 
   useEffect(
     () => {
@@ -47,17 +47,20 @@ const EventsPage = () => {
         <Jumbotron 
           title="Featured Events" 
         >
-
+          <Link className = 'btn btn-primary '
+          style={{maxWidth:"10rem", maxHeight:"3rem", textAlign:"center", marginBottom:"20px"}} to='./EventRegistration'>New Event</Link>
         <div className="row">
           {
             globalState.loggedIn === true &&
             state.events.map(
               (event)=>
                 <div className="col-lg-4 col-sm-6">
-                  <Card
+                  <Card 
                     title={event.name}
-                    description={event.description}
-                    image={event.participantsNumber}
+                    description={event.description} 
+                    x= {event.time}
+                    y = {event.organizer}
+                    z={event.participantsNumber} 
                     buttonLabel="Update"
                     buttonLink="/updateEvent"
                   />
