@@ -9,6 +9,10 @@ import GroupsPage from './GroupsPage.js';
 import EventsPage from './EventsPage.js';
 import SettingsPage from './SettingsPage';
 import './App.css';
+import GroupRegistration from './GroupRegistration';
+import EventRegistration from './EventRegistration';
+import UpdateGroup from './UpdateGroup.js';
+import UpdateEvent from './UpdateEvent';
 
 
 const PrivateRoute = ({ component: Component, ...otherProps }) => {
@@ -48,8 +52,12 @@ const App = () => {
           <Route path="/login" exact={true} component={LoginPage}/>
           <Route path="/contactUs" exact={true} component={ContactUsPage}/>
           <Route path="/register" exact={true} component={UserRegistrationPage}/>
-          <Route path="/groups" exact={true} component={GroupsPage}/>
-          <Route path="/events" exact={true} component={EventsPage}/>
+          <PrivateRoute path="/groups" exact={true} component={GroupsPage}/>
+          <PrivateRoute path="/events" exact={true} component={EventsPage}/>
+          <PrivateRoute path="/GroupRegistration" exact={true} component={GroupRegistration}/>
+          <PrivateRoute path="/UpdateGroup" exact={true} component={UpdateGroup}/>
+          <PrivateRoute path="/UpdateEvent" exact={true} component={UpdateEvent}/>
+          <PrivateRoute path="/EventRegistration" exact={true} component={EventRegistration}/>
           <PrivateRoute path="/settings" exact={true} component={SettingsPage}/>
         </Switch>
       </BrowserRouter>

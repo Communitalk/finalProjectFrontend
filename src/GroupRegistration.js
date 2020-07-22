@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import { validEmail, validPassword } from './utils'; 
 import NavBar from './NavBar.js';
+import GroupsJumbotron from './GroupsJumbotron';
 
 const GroupRegistration = () => {
 
@@ -15,39 +15,34 @@ const GroupRegistration = () => {
     );
 
     // These will be assigned values by React
-    let firstNameField;
-    let lastNameField;
-    let emailField;
-    let passwordField;
+    let name;
+    let floor;
+    let building;
+    let area;
+    let image;
 
-    const registerUser = () => {
-        // console.log(
-        //     firstNameField.value,
-        //     lastNameField.value,
-        //     emailField.value,
-        //     passwordField.value
-        // )
-
+    const createGroup = () => {
+       
         let errors = 0;
         let messages = [];
 
-        if(firstNameField.value.length < 1) {
+        if(name.value.length < 1) {
             errors++;
-            messages.push('Please enter a valid first name')
+            messages.push('Please enter a valid group name')
         }
-        if(lastNameField.value.length < 1) {
+        if(floor.value.length < 1) {
             errors++;
-            messages.push('Please enter a valid last name')
+            messages.push('Please enter a floor number ')
         }
-        if(!validEmail(emailField.value)) {
+        if(building.value.length < 1) {
             errors++;
-            messages.push('Please enter a valid email')
+            messages.push('Please enter a floor number ')
         }
-        if(!validPassword(passwordField.value)) {
+        if(area.value.length < 1) {
             errors++;
-            messages.push('Please enter a valid password')
+            messages.push('Please enter a floor number ')
         }
-
+        
         // If user makes any mistake
         if(errors > 0) {
             setState(
@@ -71,13 +66,14 @@ const GroupRegistration = () => {
             )
         }
 
-        fetch(`${process.env.REACT_APP_API_URL}users/register`, {
+        fetch(`${process.env.REACT_APP_API_URL}groups/createGroup`, {
             method: 'POST',
             body: JSON.stringify({
-                firstName: firstNameField.value,
-                lastName: lastNameField.value,
-                email: emailField.value,
-                password: passwordField.value
+                name: name.value,
+                floor: floor.value,
+                building: building.value,
+                area: area.value,
+                image:image.value
             }),
             headers: {
                 "Content-Type": "application/json"
@@ -89,7 +85,7 @@ const GroupRegistration = () => {
         .then(
             (json)=> {
                 const { message } = json;
-                if(message === "User has been saved") {
+                if(message === "Group has been created!") {
                     //
                     setState(
                         {
@@ -112,15 +108,15 @@ const GroupRegistration = () => {
 
     // If the user is registered, redirect them
     if(state.registered === true) {
-        return (<Redirect to="/login"/>)
+        return (<Redirect to="/groups"/>)
     }
 
     // Otherwise, show the registration form
     else {
         return(
-            <div>
+            <div style={{ backgroundImage: `url(${require("./background3.jpg")})`, color:"white"}}>
                 <NavBar />
-                <h1>Registration</h1>
+                <GroupsJumbotron></GroupsJumbotron>
 
                 <div className="container">
                     <div className="row">
@@ -129,59 +125,67 @@ const GroupRegistration = () => {
                             <div>
                                 <div className="form-group">
                                     <label>
-                                        First Name
+                                        Name
                                     </label>
 
                                     <input 
-                                    ref={(comp)=>firstNameField = comp}
+                                    ref={(comp)=>name = comp}
                                     type="text" 
                                     className="form-control" 
-                                    aria-describedby="firstName"/>
+                                    aria-describedby="name"/>
                                 </div>
 
                                 <div className="form-group">
                                     <label>
-                                        Last Name
+                                        Floor
                                     </label>
 
                                     <input 
-                                    ref={(comp)=>lastNameField = comp}
-                                    type="text" 
+                                    ref={(comp)=>floor = comp}
+                                    type="number" 
                                     className="form-control" 
-                                    aria-describedby="lastName"/>
+                                    aria-describedby="floor"/>
                                 </div>
 
                                 <div className="form-group">
                                     <label htmlFor="exampleInputEmail1">
-                                        Email address
+                                        Building
                                     </label>
 
                                     <input 
-                                    ref={(comp)=>emailField = comp}
-                                    type="email" 
+                                    ref={(comp)=>building = comp}
+                                    type="text" 
                                     className="form-control" 
-                                    id="exampleInputEmail1" 
-                                    aria-describedby="emailHelp"/>
-
-                                    <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+                                    aria-describedby="building"/>
                                 </div>
 
                                 <div className="form-group">
                                     <label>
-                                        Password
+                                        Area
                                     </label>
 
                                     <input 
-                                    ref={(comp)=>passwordField = comp}
-                                    type="password" 
+                                    ref={(comp)=>area = comp}
+                                    type="text" 
                                     className="form-control" 
-                                    aria-describedby="password"/>
+                                    aria-describedby="area"/>
+                                </div>
+                                <div className="form-group">
+                                    <label>
+                                        Image
+                                    </label>
+
+                                    <input 
+                                    ref={(comp)=>image = comp}
+                                    type="text" 
+                                    className="form-control" 
+                                    aria-describedby="image"/>
                                 </div>
 
                                 <button
-                                onClick={registerUser}
+                                onClick={createGroup}
                                 type="button"
-                                className="btn btn-primary">Register
+                                className="btn btn-primary">Create
                                 </button>
                                 <br/><br/>
 

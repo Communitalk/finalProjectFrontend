@@ -4,6 +4,7 @@ import Card from './Card.js';
 import Jumbotron from './Jumbotron.js';
 import NavBar from './NavBar.js';
 import GroupsJumbotron from './GroupsJumbotron';
+import { Link } from 'react-router-dom';
 
 // 1. Connect to the globalState
 // 2. Conditionally render the cards
@@ -46,17 +47,22 @@ const GroupsPage = () => {
         <Jumbotron 
           title="Featured Groups" 
         >
-
+          <Link className = 'btn btn-primary  '
+          style={{maxWidth:"10rem", maxHeight:"3rem", textAlign:"center", marginBottom:"20px"}} to='./GroupRegistration'>Create Group</Link>
         <div className="row">
+          
           {
             globalState.loggedIn === true &&
             state.groups.map(
               (group)=>
                 <div className="col-lg-4 col-sm-6">
-                  <Card
+                  <Card 
                     title={group.name}
                     description={group.building}
                     image={group.image}
+                    x = {group.floor}
+                    y = {group.building}
+                    z= {group.area}
                     buttonLabel="Update"
                     buttonLink="/updateGroup"
                   >
