@@ -3,7 +3,6 @@ import AppContext from './AppContext';
 import Card from './Card.js';
 import Jumbotron from './Jumbotron.js';
 import NavBar from './NavBar.js';
-import NewsletterForm from './NewsletterForm.js';
 import GroupsJumbotron from './GroupsJumbotron';
 
 // 1. Connect to the globalState
@@ -14,11 +13,11 @@ import GroupsJumbotron from './GroupsJumbotron';
 const GroupsPage = () => {
 
   const [globalState, setGlobalState] = useContext(AppContext);
-  const [state, setState] = useState({ products: []})
+  const [state, setState] = useState({ groups: []})
 
   useEffect(
     () => {
-      // only fetch products if and when the user logs in
+      // only fetch groups if and when the user logs in
       if(globalState.loggedIn === true) {
         fetch(`${process.env.REACT_APP_API_URL}groups`)
         .then(
@@ -51,7 +50,7 @@ const GroupsPage = () => {
         <div className="row">
           {
             globalState.loggedIn === true &&
-            state.products.map(
+            state.groups.map(
               (group)=>
                 <div className="col-lg-4 col-sm-6">
                   <Card
@@ -60,7 +59,9 @@ const GroupsPage = () => {
                     image={group.image}
                     buttonLabel="Update"
                     buttonLink="/updateGroup"
-                  />
+                  >
+                    
+                  </Card>
                 </div>
             )
           }
