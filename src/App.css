@@ -36,15 +36,7 @@
     transform: rotate(360deg);
   }
 } */
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color:#595959;
-  color: white;
-  text-align: center;
-}
+
 
 .btn {
   /* default for <button>, but useful for <a> */
