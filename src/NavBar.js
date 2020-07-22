@@ -31,7 +31,7 @@ const NavBar = () => {
             <Navbar2.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
                 <Nav.Link href="/" style={{color: "black"} }>Home</Nav.Link>
-                <Nav.Link href="/groups" style={{color: "black"}}>Feeds</Nav.Link>
+                <Nav.Link href="/groups" style={{color: "black"}}>Groups</Nav.Link>
                 <Nav.Link href="/events" style={{color: "black"}}>Events</Nav.Link>
                 <Nav.Link href="/contactUs"style={{color: "black"}}>Contact Us</Nav.Link>
                 </Nav>

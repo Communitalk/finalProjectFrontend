@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+
 const NewsletterForm = () => {
 
     const [state, setState] = useState(

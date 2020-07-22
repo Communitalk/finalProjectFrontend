@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { validEmail, validPassword } from './utils'; 
 import NavBar from './NavBar.js';
+import RegistrationJumbotron from './RegistrationJumbotron';
+import Jumbotron from './Jumbotron.js';
 
 const RegistrationPage = () => {
 
@@ -118,10 +120,11 @@ const RegistrationPage = () => {
     // Otherwise, show the registration form
     else {
         return(
-            <div>
+            <div  style={{ backgroundImage: `url(${require("./background3.jpg")})`}}>
                 <NavBar />
-                <h1>Registration</h1>
-
+                <RegistrationJumbotron> </RegistrationJumbotron>
+                
+                <Jumbotron>
                 <div className="container">
                     <div className="row">
                         <div className="col-sm" 
@@ -163,7 +166,6 @@ const RegistrationPage = () => {
                                     id="exampleInputEmail1" 
                                     aria-describedby="emailHelp"/>
 
-                                    <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
                                 </div>
 
                                 <div className="form-group">
@@ -207,7 +209,7 @@ const RegistrationPage = () => {
                         </div>
                     </div>
                 </div>
-              </div>
+              </div></Jumbotron>
             </div>
         )
     }

@@ -68,7 +68,7 @@ const LoginPage = () => {
 
     // If the user is loggedIn, redirect them
     if(globalState.loggedIn === true) {
-        return(<Redirect to="/"/>)
+        return(<Redirect to="/groups"/>)
     }
 
     // Otherwise, show the login form
@@ -112,7 +112,7 @@ const LoginPage = () => {
                                 className="btn btn-primary">Login</button>
 
 
-                                <p><br/>If you're not a registered user, click <Link to="/register">here</Link> to create an account</p>
+                                <p><br/>If you're not a registered user, click <Link style={{color:"red"}}to="/register">here</Link> to create an account</p>
 
                                 {
                                  state.loading && 
